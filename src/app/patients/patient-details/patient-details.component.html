@@ -1,0 +1,49 @@
+<div class="row p-4" *ngIf="patient">
+    <h3>{{ patient.firstname + " " + patient.lastname}}</h3>
+    <h6>
+        <i class="bi bi-telephone ms-2 me-2"></i>
+        {{ patient.phoneNumber }}
+    </h6>
+    <hr>
+
+    <div class="col-md-5 left-box">
+        <ul>
+            <li><b>Sex:</b> {{ patient.sex }}</li>
+            <li><b>Date of birth:</b> {{ patient.dateOfBirth }}</li>
+            <li><b>PESEL:</b> {{ patient.pesel }}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li>
+                <span class="me-4">{{ patient.address.postCode }}</span>
+                {{ patient.address.city }} 
+            </li>
+            <li>{{ patient.address.street }}</li>
+            <li>{{ patient.address.country | uppercase }}</li>
+        </ul>
+        
+        
+    </div>
+
+    <div class="col-md-7 right-box">
+        <ul>
+            <li>
+                <b>Health Problems</b><br>
+                {{ patient.medicalData.activeHealthProblems }}
+            </li>
+            <li>
+                <b>Taken Medications</b><br>
+                {{ patient.medicalData.takenMedications }}
+            </li>
+            <li>
+                <b>Allergies</b><br>
+                {{ patient.medicalData.activeAllergies }}
+            </li>
+        </ul>
+
+
+    </div>
+
+
+
+</div>

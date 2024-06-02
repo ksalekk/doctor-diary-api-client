@@ -1,0 +1,28 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th *ngFor="let col of tableStructure.cols" class="centered-cell">
+                    {{col.name}}
+                </th>
+                <th *ngIf="tableStructure.actions" class="centered-cell">ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let item of items; index as i">
+                <th scope="row"> {{ i }} </th>
+                <td *ngFor="let col of tableStructure.cols" class="centered-cell">
+                    {{item[col.property]}}
+                </td>
+                <td class="centered-cell">
+                    <a *ngFor="let action of tableStructure.actions"
+                        (click)="action.handler(item.id)"
+                        class="icon-link icon-link-hover">
+                            <i class={{action.icon}}></i>
+                </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

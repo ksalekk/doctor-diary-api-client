@@ -1,0 +1,32 @@
+table {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+table th,
+table td {
+  padding: 0.8rem 2rem;
+}
+
+table .centered-cell {
+  text-align: center;
+}
+
+.centered-cell .bi {
+  margin-right: 0.7rem;
+  margin-left: 0.7rem;
+  font-size: 1.3rem;
+}
+
+td a {
+  color: whitesmoke;
+}
+
+table a:hover {
+  color: rgb(25, 135, 84);
+  cursor: pointer;
+}
+
+table {
+  --bs-table-bg: var(--bs-dark-bg-subtle);
+}

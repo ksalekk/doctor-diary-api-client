@@ -1,0 +1,8 @@
+<div class="container-md">
+    <h1 class="pb-3 mb-5 border-bottom text-center">Edit Patient</h1>
+    <div class="row justify-content-center">
+        <div class="col-11 col-lg-8">
+            <app-patient-form [patient]="this.editedPatient" (submitPatient)="updatePatient($event)"></app-patient-form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="content-header">
+    <h2>Your&nbsp;Patients</h2>
+    <a routerLink="/patients/patient-form" routerLinkActive="active">
+        <button type="button" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>
+            Add&nbsp;New&nbsp;Patient
+        </button>
+    </a>
+</div>
+
+<div *ngIf="this.patients">
+    <app-items-list [tableStructure]="this.patientListStructure" [items]="this.patients">
+    </app-items-list>
+</div>

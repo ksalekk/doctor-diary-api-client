@@ -1,0 +1,14 @@
+<div class="content-header">
+    <h2>Your&nbsp;Appointments</h2>
+    <a routerLink="/appointments/appointment-form" routerLinkActive="active">
+        <button type="button" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>
+            Add&nbsp;New&nbsp;Appointment
+        </button>
+    </a>
+</div>
+
+<div *ngIf="this.appointments">
+    <app-items-list [tableStructure]="this.appointmentListStructure" [items]="this.appointments">
+    </app-items-list>
+</div>

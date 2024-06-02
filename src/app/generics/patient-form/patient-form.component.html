@@ -1,0 +1,88 @@
+<form [formGroup]="this.patientForm" (ngSubmit)="onSubmit()">
+
+	<h4 class="mb-3">Personal Data</h4>
+	<div class="row g-3 align-items-center border-bottom pb-4 mb-4">
+		<div class="col-sm-6">
+			<label for="firstname" class="form-label">Name</label>
+			<input type="text" id="firstname" class="form-control" formControlName="firstname">
+		</div>
+		<div class="col-sm-6">
+			<label for="lastname" class="form-label">Lastname</label>
+			<input type="text" id="lastname" class="form-control" formControlName="lastname">
+		</div>
+
+		<div class="col-sm-5">
+			<label for="dob" class="form-label">Date of Birth</label>
+			<input type="date" id="dob" min="1900-01-01" [max]="currentDate" [value]="patient?.dateOfBirth"
+				class="form-control" />
+		</div>
+
+		<div for="male" class="col-sm-5 offset-sm-1">
+			<label class="form-label d-block">Sex</label>
+			<div class="form-check form-check-inline me-4">
+				<input type="radio" id="male" value="male" name="sex" class="form-check-input" formControlName="sex">
+				<label for="male" class="form-check-label">Male</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="radio" id="female" value="female" name="sex" class="form-check-input"
+					formControlName="sex">
+				<label for="female" class="form-check-label">Female</label>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<label for="pesel" class="form-label">PESEL</label>
+			<input type="text" id="pesel" class="form-control" formControlName="pesel">
+		</div>
+
+		<div class="col-sm-4 offset-sm-2">
+			<label for="phone-number" class="form-label">Phone Number</label>
+			<input type="tel" id="phone-number" class="form-control" formControlName="phoneNumber">
+		</div>
+	</div>
+
+	<h4 class="mb-3">Address Data</h4>
+	<div formGroupName="address" class="row g-3 align-items-center border-bottom pb-4 mb-4">
+		<div class="col-md-4">
+			<label for="country" class="form-label">Country</label>
+			<input type="text" id="country" value="Poland" class="form-control" formControlName="country">
+		</div>
+
+		<div class="col-md-5 col-sm-7">
+			<label for="city" class="form-label">City</label>
+			<input type="text" id="city" class="form-control" formControlName="city">
+		</div>
+
+		<div class="col-md-3 col-sm-5">
+			<label for="postcode" class="form-label">Post Code</label>
+			<input type="text" id="postcode" class="form-control" formControlName="postCode">
+		</div>
+
+		<div class="col">
+			<label for="street" class="form-label">Street</label>
+			<input type="text" id="street" class="form-control" formControlName="street">
+		</div>
+	</div>
+
+	<div formGroupName="medicalData" class="row g-3 align-items-center border-bottom pb-4 mb-4">
+		<h4 class="mb-3">Medical Data (optional)</h4>
+		<div class="form-floating mb-3">
+			<textarea class="form-control" placeholder="Active patient's health problems." id="healthproblems"
+				formControlName="activeHealthProblems"></textarea>
+			<label for="healthproblems" class="ms-4">Active health problems</label>
+		</div>
+		<div class="form-floating mb-3">
+			<textarea class="form-control" placeholder="Taken medications." id="medications"
+				formControlName="takenMedications"></textarea>
+			<label for="medications" class="ms-4">Medications taken by patient</label>
+		</div>
+		<div class="form-floating mb-3">
+			<textarea class="form-control" placeholder="Active allergies" id="allergies"
+				formControlName="activeAllergies"></textarea>
+			<label for="allergies" class="ms-4">Active allergies</label>
+		</div>
+	</div>
+
+	<button class="btn btn-primary btn-lg w-100" type="submit" [disabled]="patientForm.invalid">Register
+		Patient</button>
+</form>
