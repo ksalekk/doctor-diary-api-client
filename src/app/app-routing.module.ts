@@ -8,6 +8,7 @@ import { AppointmentsListComponent } from './appointments/appointments-list/appo
 import { PatientDetailsComponent } from './patients/patient-details/patient-details.component';
 import { NewPatientFormComponent } from './patients/new-patient-form/new-patient-form.component';
 import { UpdatePatientFormComponent } from './patients/update-patient-form/update-patient-form.component';
+import { AppointmentFormComponent } from './generics/appointment-form/appointment-form.component';
 
 const routes: Routes = [
   {
@@ -20,11 +21,11 @@ const routes: Routes = [
     title: 'MedManager | Your Appointments',
     component: AppointmentsListComponent,
   },
-  // {
-  //   path: 'appointments/appointment-form',
-  //   title: 'MedManager | New Appointment Form',
-  //   component: AppointmentFormComponent,
-  // },
+  {
+    path: 'appointments/appointment-form',
+    title: 'MedManager | New Appointment Form',
+    component: AppointmentFormComponent,
+  },
   {
     path: 'patients',
     component: PatientsListComponent,

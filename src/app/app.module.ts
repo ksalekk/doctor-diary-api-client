@@ -11,6 +11,7 @@ import { GenericsModule } from './generics/generics.module';
 import { PatientsModule } from './patients/patients.module';
 import { AppointmentsModule } from './appointments/appointments.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     GenericsModule,
     PatientsModule,
     AppointmentsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

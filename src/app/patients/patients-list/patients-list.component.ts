@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 // import { GenericsModule } from 'src/app/generics/generics.module';
-import { ListItem, ListStructure, Patient } from 'src/app/generics/utils';
+import { ListItem, ListStructure, Patient, deleteMessage } from 'src/app/generics/utils';
 import { PatientService } from '../patient.service';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationModalComponent } from 'src/app/generics/confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-patients-list',
@@ -13,7 +15,11 @@ import { Router } from '@angular/router';
 export class PatientsListComponent implements OnInit {
   public patients: ListItem[];
 
-  constructor(private patientService: PatientService, private router: Router) {}
+  constructor(
+    private patientService: PatientService,
+    private router: Router,
+    private modal: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.patientService
@@ -44,6 +50,17 @@ export class PatientsListComponent implements OnInit {
     this.router.navigate(['/patients', id, 'edit'])
   }
   deletePatient(id: number) {
-    console.log(`Delete patient ${id}`);
+    const modalRef = this.modal.open(ConfirmationModalComponent);
+    (modalRef.componentInstance as ConfirmationModalComponent).title = 'Delete patient';
+    (modalRef.componentInstance as ConfirmationModalComponent).message = deleteMessage('patient', id.toString());
+
+    modalRef.result
+      .then(() => {
+        this.patientService.deletePatient(id).subscribe(
+          (patient) => console.log(`Patient ${JSON.stringify(patient, null, 2)} has been deleted`),
+          (err) => console.error(err)
+        );
+      })
+      .catch(err => {})
   }
 }

@@ -1,0 +1,7 @@
+<div *ngIf="this.messageService.messages.length">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert"
+        *ngFor="let message of this.messageService.messages; index as i">
+        {{ message }}
+        <button type="button" class="btn-close" (click)="messageService.close(i)"></button>
+    </div>
+</div>

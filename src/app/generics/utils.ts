@@ -48,4 +48,9 @@ export interface ListStructure {
 }
 
 
+export const deleteMessage = (resourceType: string, resource: string) => {
+  return `Are you sure you want to delete ${resource}? All information associated to this ${resource} will be permanently deleted. This operation cannot be undone.`
+}
+
+
 

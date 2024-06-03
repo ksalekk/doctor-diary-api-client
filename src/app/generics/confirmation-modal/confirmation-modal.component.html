@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ this.title }}</h4>
+    <button type="button" class="btn-close" (click)="this.activeModal.dismiss('Cross click')"
+    ></button>
+</div>
+
+<div class="modal-body">
+    <p>{{ this.message }}</p>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="this.activeModal.dismiss()">No</button>
+    <button type="button" class="btn btn-danger" (click)="this.activeModal.close()">Yes</button>
+</div>

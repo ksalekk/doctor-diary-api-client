@@ -11,7 +11,7 @@ import { GenericsModule } from '../generics/generics.module';
   ],
   imports: [
     CommonModule,
-    GenericsModule
+    GenericsModule,
   ]
 })
 export class AppointmentsModule { }
